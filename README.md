@@ -10,6 +10,7 @@ shown the rest of my catalog. The root URL is intentionally blank.
 | --- | --- |
 | Flow | https://fanyu.github.io/legal/flow/ |
 | Lull | https://fanyu.github.io/legal/lull/ |
+| Odo | https://fanyu.github.io/legal/odo/ |
 | PasteFlow | https://fanyu.github.io/legal/pasteflow/ |
 | SignatureFlow | https://fanyu.github.io/legal/signatureflow/ |
 | VoiceFlow | https://fanyu.github.io/legal/voiceflow/ |
