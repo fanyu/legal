@@ -11,49 +11,96 @@
   <main>
     <article>
       <p class="eyebrow">PasteFlow</p>
-      <h1>Privacy Policy</h1>
-      <p class="date">Effective August 29, 2026</p>
-
-      <p>PasteFlow turns content you copy into the next action. This Privacy Policy explains how PasteFlow handles information when you use the macOS app. Clipboard data stays on your Mac. PasteFlow does not provide iCloud sync and does not operate a developer server that collects clipboard content.</p>
-
-      <h2>Our approach</h2>
-      <p>Your data is designed to stay under your control. PasteFlow does not sell personal information, does not use it for cross-app advertising, and does not build advertising profiles.</p>
-
-      <h2>Clipboard content</h2>
-      <p>While PasteFlow is running, it can read the system pasteboard to monitor and save clipboard history according to your settings. This may include text, images, file references, links, timestamps, content type, and favorite or pin state. History, snippets, settings, actions, workflows, and per-app routing rules are stored in the app's local data on your Mac. PasteFlow does not transmit your clipboard history to us.</p>
-
-      <h2>Local storage and sensitive content</h2>
-      <p>PasteFlow provides local exclusion rules, sensitive-content expiration, confirmation before external actions, and backup-exclusion controls. If you enable local encryption, sensitive text is encrypted on your Mac using a key stored in the system Keychain. This does not mean that all ordinary clipboard history is encrypted.</p>
-
-      <h2>No cloud sync</h2>
-      <p>The current version does not provide iCloud or other multi-device synchronization. PasteFlow does not upload clipboard history, snippets, settings, or workflows to the cloud.</p>
-
-      <h2>Backups and imports</h2>
-      <p>PasteFlow creates a backup only when you choose a destination and confirm the export. JSON backup files are not encrypted. Sensitive items stored through local encrypted references are always omitted because their device-only keys and payloads are not portable. Other sensitive items follow your backup-exclusion setting, and PasteFlow warns you before exporting sensitive content in plaintext. You are responsible for protecting exported backup files.</p>
-
-      <h2>Actions and external services</h2>
-      <p>Some actions open, search, or send the copied content to a destination that you choose, such as a website, a search engine, or another app. When you run such an action, the content you selected and standard network information, including your IP address, reach that destination. Those services handle the request under their own policies.</p>
-
-      <h2>Purchases and feedback</h2>
-      <p>PasteFlow Pro is a one-time App Store purchase. Apple processes payment information, and the app receives only StoreKit transaction state needed to complete or restore access. Public GitHub feedback includes the report you enter and app version, build, macOS version, language, and timestamp metadata. Email feedback is handled by your configured mail provider. Do not submit confidential clipboard content, passwords, tokens, or other sensitive information.</p>
-
-      <h2>Analytics and tracking</h2>
-      <p>PasteFlow does not include third-party advertising SDKs or cross-app tracking. We do not sell personal information.</p>
-
-      <h2>Your choices</h2>
-      <p>You can manage app permissions in macOS, configure capture and sensitive-content controls, clear history in PasteFlow, and delete locally stored app data. Exported backups, public GitHub issues, sent email, and content sent to an external destination are outside PasteFlow's local deletion controls.</p>
-
-      <h2>Security</h2>
-      <p>We use platform security features and reasonable safeguards designed to protect information handled by PasteFlow. No method of storage or transmission is completely secure, and you should keep your device and Apple Account secure.</p>
-
-      <h2>Children's privacy</h2>
-      <p>PasteFlow is not directed to children under 13, and we do not knowingly collect personal information from children under 13.</p>
-
-      <h2>Changes to this policy</h2>
-      <p>We may update this policy as PasteFlow changes. When we do, we will update the effective date above.</p>
-
-      <h2>Contact</h2>
-      <p>For privacy questions, contact <a href="mailto:edison.support@icloud.com">edison.support@icloud.com</a>. Read the <a href="terms/">PasteFlow Terms of Use</a>.</p>
+<h1>PasteFlow 隐私政策 / Privacy Policy</h1>
+<p><strong>生效日期 / Effective date：2026-09-26</strong><br>
+<strong>联系邮箱 / Contact：</strong> <a href="mailto:edison.support@icloud.com">edison.support@icloud.com</a></p>
+<p>本政策说明 PasteFlow（以下简称“本应用”）如何处理您使用 macOS 版 PasteFlow 时产生的数据。请在使用本应用前阅读本政策。本应用将剪贴板数据保存在您的 Mac 本地，不提供 iCloud 同步，也不运营用于收集剪贴板内容的开发者服务器。只有您主动导出备份或发送反馈时，相关数据才会离开本应用的本地存储范围。</p>
+<p>This policy explains how PasteFlow (the “App”) handles data when you use the macOS version of PasteFlow. Please read it before using the App. The App stores clipboard data locally on your Mac, does not provide iCloud sync, and does not operate a developer server for collecting clipboard contents. Relevant data leaves the App's local storage boundary only when you explicitly export a backup or send feedback.</p>
+<hr />
+<h2>中文版</h2>
+<h3>1. 本应用处理哪些数据</h3>
+<p>PasteFlow 是剪贴板历史工具。根据您启用的功能，本应用可能在您的 Mac 上处理：</p>
+<ul>
+<li>剪贴板中的文字、图片、文件引用、链接以及相关的创建时间、内容类型、收藏/置顶和使用状态；</li>
+<li>您的收藏/置顶状态和设置；</li>
+<li>您主动导出的备份文件，及您主动选择导入的备份文件；</li>
+<li>Apple 处理付费下载的付款信息；本应用不会接收您的完整支付卡信息。</li>
+</ul>
+<p>本应用不会为了分析、广告或建立用户画像而收集剪贴板内容。剪贴板内容可能包含个人信息或敏感信息，因此请只复制和保存您有权处理的内容。</p>
+<h3>2. 数据在哪里保存</h3>
+<ul>
+<li><strong>本地存储：</strong> 剪贴板历史、收藏/置顶和设置默认保存在您 Mac 的本地应用数据中。开发者无法通过 PasteFlow 的服务器读取这些数据，因为本应用没有用于此目的的开发者数据后台。</li>
+<li><strong>敏感内容控制：</strong> 您可以使用应用排除规则、敏感内容自动过期和备份排除等本地控制。若您开启“本地加密”选项，敏感文本内容会在本机使用系统钥匙串保存的密钥进行加密存储；本应用不因此声称所有普通剪贴板历史都已加密。</li>
+<li><strong>不提供云同步：</strong> 当前版本不提供 iCloud 或其他多设备同步。剪贴板历史和设置不会由 PasteFlow 上传到云端。</li>
+<li><strong>备份与导入：</strong> 备份只有在您主动选择导出位置并确认导出时创建。JSON 备份文件本身不加密。使用本地加密引用的敏感项目始终排除，因为其设备专用密钥和负载不可移植；其他敏感项目遵循您的备份排除设置。如果您选择包含明文敏感项目，本应用会在写入前警告。备份文件由您负责保管。</li>
+</ul>
+<p>更新前保存的片段和预设可能继续留在本机应用数据中，但新版本不再提供对应功能。</p>
+<h3>3. 您主动发出的反馈</h3>
+<p>本应用提供两种不同的支持途径，请根据公开程度谨慎选择：</p>
+<ul>
+<li><strong>GitHub Issue 反馈：</strong> 选择公开反馈后，本应用会打开 <code>fanyu/PasteFlow-Feedback</code> 的新 Issue 页面。Issue 会包含您输入的标题和内容，以及用于排查问题的应用版本、构建号、macOS 版本、应用语言和时间戳。Issue 对 GitHub 及互联网用户公开；请不要提交剪贴板原文、密码、令牌、个人身份信息或其他机密内容。GitHub 会按照其自身的隐私政策处理公开 Issue 和您的 GitHub 账号信息。</li>
+<li><strong>邮件支持：</strong> 选择邮件支持会使用您系统中配置的邮件客户端，收件人是 <a href="mailto:edison.support@icloud.com">edison.support@icloud.com</a>。只有您在邮件中主动填写的内容会随邮件发送；邮件及其附件可能由您的邮件服务商处理和保存。</li>
+</ul>
+<h3>4. 第三方服务、权限与技术数据</h3>
+<p>PasteFlow 不包含第三方广告、分析、追踪或遥测 SDK，也不在应用后台建立开发者账号系统。Apple 可能根据其自身条款处理 App Store、macOS 系统服务以及您主动使用的其他 Apple 服务所需的技术信息。</p>
+<p>本应用可能请求或使用以下 macOS 能力来完成您主动启用的功能：</p>
+<ul>
+<li>剪贴板访问，用于监测和保存剪贴板历史；</li>
+<li>辅助功能权限，用于在您选择自动粘贴时向其他应用发送按键；</li>
+<li>文件选择器，用于您主动导出或导入备份；</li>
+<li>网络浏览器或邮件客户端，用于打开 GitHub 反馈、隐私政策、使用条款和邮件支持链接。</li>
+</ul>
+<p>这些权限不会改变本政策所述的数据处理范围。本应用不会因为您授予权限就将完整剪贴板历史上传给开发者。</p>
+<h3>5. 保存期限与删除</h3>
+<p>本地数据会保留到您在应用中删除、清空、导出后自行删除，或您启用的敏感内容自动过期规则将其删除为止。您可以在 PasteFlow 中清理历史，也可以通过 macOS 的应用数据管理方式删除本地数据。开发者不会保留一份独立的剪贴板副本。</p>
+<p>已提交到 GitHub 的公开 Issue 和已发送的邮件不受 PasteFlow 本地删除操作控制；如需删除公开 Issue 或邮件，请分别向 GitHub 或您的邮件服务商提出请求。</p>
+<h3>6. 儿童隐私</h3>
+<p>PasteFlow 是面向一般 macOS 用户的生产力工具，并非面向儿童设计。本应用不会主动向儿童收集个人信息。</p>
+<h3>7. 政策更新与联系我们</h3>
+<p>我们可能因功能、法律或平台要求更新本政策。更新后的版本会在本页面发布，并标注新的生效日期。若您对本政策或数据处理方式有疑问，请联系：</p>
+<h2><strong><a href="mailto:edison.support@icloud.com">edison.support@icloud.com</a></strong></h2>
+<h2>English Version</h2>
+<h3>1. Data the App Handles</h3>
+<p>PasteFlow is a clipboard history utility. Depending on the features you enable, the App may process the following on your Mac:</p>
+<ul>
+<li>Clipboard text, images, file references, links, and related metadata such as creation time, content type, favorite/pin state, and usage state;</li>
+<li>Your favorites/pins and settings;</li>
+<li>Backup files that you explicitly export, and backup files that you explicitly choose to import;</li>
+<li>Payment information for the paid download is handled by Apple; the App does not receive your full payment-card details.</li>
+</ul>
+<p>The App does not collect clipboard contents for analytics, advertising, or profiling. Clipboard contents may include personal or sensitive information, so only copy and store content that you are authorized to handle.</p>
+<h3>2. Where Data Is Stored</h3>
+<ul>
+<li><strong>On your Mac:</strong> Clipboard history, favorites/pins, and settings are stored in the App’s local application data by default. The developer cannot read this data through a PasteFlow server because the App does not operate a developer backend for this purpose.</li>
+<li><strong>Sensitive-content controls:</strong> You can use local exclusion rules, sensitive-content expiration, and backup-exclusion controls. If you enable local encryption, sensitive text content is encrypted on the Mac with a key stored in the system Keychain. This does not mean that all ordinary clipboard history is encrypted.</li>
+<li><strong>No cloud sync:</strong> The current version does not provide iCloud or other multi-device synchronization. PasteFlow does not upload clipboard history or settings to the cloud.</li>
+<li><strong>Backups and imports:</strong> A backup is created only after you choose a destination and confirm an export. JSON backup files are not encrypted. Sensitive items backed by local encrypted references are always excluded because their device-only keys and payloads are not portable; other sensitive items follow your backup-exclusion setting. If you choose to include plaintext sensitive items, the App warns you before writing them. You are responsible for protecting backup files.</li>
+</ul>
+<p>Snippets and presets saved before this update may remain in local app data, although the current version no longer exposes those features.</p>
+<h3>3. Feedback You Choose to Send</h3>
+<p>The App offers two support paths with different levels of public exposure:</p>
+<ul>
+<li><strong>GitHub Issue feedback:</strong> Public feedback opens a new issue in <code>fanyu/PasteFlow-Feedback</code>. The issue contains the title and details you enter, plus troubleshooting metadata: app version, build number, macOS version, app language, and timestamp. Issues are public to GitHub and the internet. Do not submit raw clipboard contents, passwords, tokens, personal identifiers, or other confidential information. GitHub handles public issues and GitHub account information under its own privacy policy.</li>
+<li><strong>Email support:</strong> Email support opens the mail client configured on your Mac with <a href="mailto:edison.support@icloud.com">edison.support@icloud.com</a> as the recipient. Only the content and attachments you choose to include are sent; your mail provider may process and retain the message and attachments.</li>
+</ul>
+<h3>4. Third-Party Services, Permissions, and Technical Data</h3>
+<p>PasteFlow contains no third-party advertising, analytics, tracking, or telemetry SDKs and does not require a developer-owned account. Apple may process technical information required for the App Store, macOS system services, and other Apple services that you choose to use under Apple’s own terms.</p>
+<p>The App may request or use these macOS capabilities for features you actively enable:</p>
+<ul>
+<li>Clipboard access to monitor and save clipboard history;</li>
+<li>Accessibility permission to send keystrokes to another app when you choose automatic paste ;</li>
+<li>File pickers for an export or import that you initiate;</li>
+<li>A web browser or mail client to open GitHub feedback, this policy, the Terms of Use, or email support.</li>
+</ul>
+<p>These permissions do not expand the data processing described in this policy. Granting permission does not cause the App to upload your complete clipboard history to the developer.</p>
+<h3>5. Retention and Deletion</h3>
+<p>Local data remains until you delete or clear it in the App, delete your exported copy, or an enabled sensitive-content expiration rule removes it. You can clear history in PasteFlow or remove local app data using macOS data-management controls. The developer does not retain a separate copy of your clipboard history.</p>
+<p>Public GitHub issues and sent email are not controlled by PasteFlow’s local deletion controls. To request removal of a public issue or an email, contact GitHub or your mail provider respectively.</p>
+<h3>6. Children’s Privacy</h3>
+<p>PasteFlow is a general productivity utility for macOS and is not directed to children. The App does not knowingly solicit personal information from children.</p>
+<h3>7. Changes and Contact</h3>
+<p>We may update this policy when the App, applicable law, or platform requirements change. The updated version will be published on this page with a new effective date. Questions about this policy or PasteFlow’s data practices can be sent to:</p>
+<p><strong><a href="mailto:edison.support@icloud.com">edison.support@icloud.com</a></strong></p>
     </article>
   </main>
 </body>
