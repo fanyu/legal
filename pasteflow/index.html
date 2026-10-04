@@ -13,7 +13,7 @@
       <p class="eyebrow">PasteTrail</p>
 <p><a href="support/">PasteTrail Support / 支持与帮助</a></p>
 <h1>PasteFlow 隐私政策 / Privacy Policy</h1>
-<p><strong>生效日期 / Effective date：2026-10-02</strong><br>
+<p><strong>生效日期 / Effective date：2026-10-04</strong><br>
 <strong>联系邮箱 / Contact：</strong> <a href="mailto:support@flowwish.app">support@flowwish.app</a></p>
 <p>本政策说明 PasteFlow（以下简称“本应用”）如何处理您使用 macOS 版 PasteFlow 时产生的数据。请在使用本应用前阅读本政策。本应用将剪贴板数据保存在您的 Mac 本地，不提供 iCloud 同步，也不运营用于收集剪贴板内容的开发者服务器。只有您主动导出备份或发送反馈时，相关数据才会离开本应用的本地存储范围。</p>
 <p>This policy explains how PasteFlow (the “App”) handles data when you use the macOS version of PasteFlow. Please read it before using the App. The App stores clipboard data locally on your Mac, does not provide iCloud sync, and does not operate a developer server for collecting clipboard contents. Relevant data leaves the App's local storage boundary only when you explicitly export a backup or send feedback.</p>
@@ -47,7 +47,7 @@
 <p>本应用可能请求或使用以下 macOS 能力来完成您主动启用的功能：</p>
 <ul>
 <li>剪贴板访问，用于监测和保存剪贴板历史；</li>
-<li>本应用不请求辅助功能权限，也不向其他应用模拟按键。选择历史记录后，内容会复制到系统剪贴板；请在目标应用中按 ⌘V 粘贴。</li>
+<li>默认情况下，选择历史记录只会复制内容，请在目标应用中按 ⌘V 粘贴。从 Build 16 测试版本起，用户可在设置中选择开启“选中后直接粘贴”，并主动授予 macOS 管理的事件发送权限。此功能仅在用户按回车或双击选中记录后，向先前使用的应用发送 ⌘V；不读取其他应用的界面，不监听键盘输入。未授权、目标应用不可用或操作中断时，仍可手动粘贴。</li>
 <li>文件选择器，用于您主动导出或导入备份；</li>
 <li>网络浏览器或邮件客户端，用于打开 GitHub 反馈、隐私政策、使用条款和邮件支持链接。</li>
 </ul>
@@ -89,7 +89,7 @@
 <p>The App may request or use these macOS capabilities for features you actively enable:</p>
 <ul>
 <li>Clipboard access to monitor and save clipboard history;</li>
-<li>The app does not request Accessibility permission or synthesize keyboard events in other apps. Selecting a history item copies it to the system clipboard; press Command-V in the destination app to paste.</li>
+<li>By default, selecting a history item copies it to the system clipboard; press Command-V in the destination app to paste. Starting with the Build 16 beta, users may enable optional direct paste in Settings and explicitly grant macOS-managed event-posting permission. After the user confirms a history item with Return or a double-click, this feature sends Command-V to the previously used application. It does not read other applications' interfaces or monitor keyboard input. Without permission, or if the target is unavailable or delivery is interrupted, the copied content remains available for manual paste.</li>
 <li>File pickers for an export or import that you initiate;</li>
 <li>A web browser or mail client to open GitHub feedback, this policy, the Terms of Use, or email support.</li>
 </ul>
