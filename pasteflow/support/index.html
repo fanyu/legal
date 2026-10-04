@@ -16,14 +16,16 @@
     <p>For questions, bug reports, or privacy requests, email <a href="mailto:support@flowwish.app">support@flowwish.app</a>. No GitHub account is required to contact us by email.</p>
     <p>Please include your PasteTrail version and build number from Settings → About, your macOS version, what you expected, and what happened. Do not send passwords, tokens, or private clipboard contents. Share screenshots only after removing sensitive information.</p>
     <h2>How to use PasteTrail</h2>
-    <ol><li>Launch PasteTrail and copy some content in another app.</li><li>Open the Quick Panel using the menu bar icon or your configured global shortcut.</li><li>Search your history and double-click an item to copy it. The panel closes and returns you to the previous app.</li><li>Press Command-V in that app to paste. PasteTrail does not paste automatically and does not request Accessibility permission.</li></ol>
+    <ol><li>Launch PasteTrail and copy some content in another app.</li><li>Open the Quick Panel using the menu bar icon or your configured global shortcut.</li><li>Search your history and double-click an item to copy it. The panel closes and returns you to the previous app.</li><li>Press Command-V in that app to paste. Copy-only is the default and works without additional permission.</li></ol>
+  <p><strong>Optional direct paste — Build 16 beta and later:</strong> Open Settings → General → Pasting, turn on “Paste directly after selection”, then choose “Enable Direct Paste”. If macOS directs you to Privacy &amp; Security, allow the installed PasteTrail app there and return to Settings to check the permission status. Once authorized, Return or a double-click requests a paste into your previous app. If permission is unavailable or delivery is interrupted, press Command-V manually. Some destination apps or fields may not accept the shortcut.</p>
     <h2>Common questions</h2>
     <h3>Why is an item missing?</h3><p>Check your capture exclusions, history retention, and sensitive-content controls in Settings. Content excluded by these settings may not be saved or may expire.</p>
     <h3>How do I keep important items?</h3><p>Pin or favorite items you want to keep. You can export and restore a JSON backup from Settings. Keep backup files private; JSON backups are not encrypted.</p>
     <h3>Does my history sync to other devices?</h3><p>No. The current version stores history locally and does not provide iCloud or other multi-device synchronization.</p>
     <h2 lang="zh-Hans">中文帮助</h2>
     <p lang="zh-Hans">如有使用问题、故障反馈或隐私请求，请发送邮件至 <a href="mailto:support@flowwish.app">support@flowwish.app</a>，无需 GitHub 账号。请提供设置 → 关于中的应用版本及构建号、macOS 版本、操作步骤和实际结果，请勿发送密码、令牌或私密剪贴板内容。</p>
-    <p lang="zh-Hans">启动应用后，在其他应用中复制内容。点击菜单栏图标或使用已配置的全局快捷键打开面板，搜索并双击历史记录。内容会复制到剪贴板，面板关闭并返回原应用；请自己按 ⌘V 粘贴。本应用不会自动粘贴，也不申请辅助功能权限。</p>
+    <p lang="zh-Hans">启动应用后，在其他应用中复制内容。点击菜单栏图标或使用已配置的全局快捷键打开面板，搜索并双击历史记录。内容会复制到剪贴板，面板关闭并返回原应用；请自己按 ⌘V 粘贴。默认使用此复制后手动粘贴方式，无需额外权限。</p>
+  <p lang="zh-Hans"><strong>可选直接粘贴（Build 16 测试版本及以后）：</strong>打开“设置 → 通用 → 粘贴”，开启“选中后直接粘贴”，再点击“启用直接粘贴”。如 macOS 引导至“隐私与安全性”，请在其中允许已安装的 PasteTrail，并返回设置确认授权状态。授权后，按回车或双击会尝试粘贴到之前使用的应用。未授权或操作中断时，仍可手动按 ⌘V；部分应用或输入框可能不接受此快捷键。</p>
     <p lang="zh-Hans">找不到记录时，请检查采集排除项、历史保留期限及敏感内容设置。常用项目可以置顶或收藏，也可以在设置中导出和恢复 JSON 备份。备份文件本身不加密，请妥善保管。当前版本不提供云同步。</p>
     <h2>Privacy and additional feedback</h2>
     <p><a href="../">Privacy Policy / 隐私政策</a> · <a href="../terms/">Terms / 使用条款</a></p>
