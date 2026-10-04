@@ -1,0 +1,72 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "K52WP93HZU.com.fanyu.flow.finance"
+        ],
+        "components": [
+          {
+            "/": "/flow/link/*",
+            "comment": "Flow deep links"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "K52WP93HZU.com.edc.Lull"
+        ],
+        "components": [
+          {
+            "/": "/lull/link/*",
+            "comment": "Lull deep links"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "K52WP93HZU.com.fanyu.PasteFlow"
+        ],
+        "components": [
+          {
+            "/": "/pasteflow/link/*",
+            "comment": "PasteTrail deep links"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "K52WP93HZU.com.fanyu.reverie"
+        ],
+        "components": [
+          {
+            "/": "/reverie/link/*",
+            "comment": "Reverie deep links"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "K52WP93HZU.com.edc.Odo"
+        ],
+        "components": [
+          {
+            "/": "/odo/link/*",
+            "comment": "Odo deep links"
+          }
+        ]
+      },
+      {
+        "appIDs": [
+          "K52WP93HZU.com.fanyu.Meluva"
+        ],
+        "components": [
+          {
+            "/": "/meluva/link/*",
+            "comment": "Meluva deep links"
+          }
+        ]
+      }
+    ]
+  }
+}
