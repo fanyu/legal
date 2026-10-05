@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Builds the Flowwish logo kit and the website's logos, icons and share images.
+"""Builds the Flowwish logo kit (logos, avatars, profile banners) and the website's
+logos, icons and share images.
 
     python3 brand/generate.py
 
@@ -183,6 +184,103 @@ def favicon(gap):
     return svg(symbol(gap), (PAPER, PAPER, None), pad=.06 * BW, square=True, bg=VERMILION, radius=.2)
 
 
+# ---------- profile banners ----------
+
+def mix(a, b, t):
+    """Colour a moved toward colour b by t."""
+    a, b = (tuple(int(c[i:i + 2], 16) for i in (1, 3, 5)) for c in (a, b))
+    return '#' + ''.join(f'{round(p + (q - p) * t):02x}' for p, q in zip(a, b))
+
+
+# Colourways: file suffix -> (hull, sail, current, background) and the fold gap.
+BANNERS = {
+    '': ((INK, VERMILION, mix(INK, PAPER, .83), PAPER), 24),
+    '-dark': ((NIGHT_INK, NIGHT_VERMILION, mix(TILE, NIGHT_INK, .16), TILE), 24),
+    '-vermilion': ((PAPER, PAPER, mix(VERMILION, PAPER, .2), VERMILION), 30),
+}
+# Sizes: name -> (width, height, the band that holds the boat, or None for the whole image)
+BANNER_SIZES = {
+    '3x1': (1500, 500, None),                       # X, Bluesky, Mastodon
+    '4x1': (1584, 396, None),                       # LinkedIn
+    '16x9': (2560, 1440, (507, 508, 1546, 423)),    # YouTube: the band is what every device shows
+}
+
+
+def streamline(X, c, R):
+    """Uniform flow past a circle of radius R: the y of the streamline psi = c at X."""
+    if c < 0:
+        return -streamline(X, -c, R)
+    lo = math.sqrt(max(R * R - X * X, 0))
+    hi = lo + c + R
+    for _ in range(40):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if mid * (1 - R * R / (X * X + mid * mid)) < c else (lo, mid)
+    return lo
+
+
+def wake(cx, u):
+    """x -> X in the flow round the circle. The horizontal scale is 2 ahead of the boat
+    and eases to 4.6 behind it, so the current parts round the bow and closes in a long
+    wake. X is the integral of dx / scale, which keeps the bow free of kinks."""
+    a, b, L, x0 = 3.3, 1.3, 140 * u, cx - 100 * u      # scale = a - b tanh((x - x0) / L)
+    def integral(x):
+        t = (x - x0) / L
+        m = abs(t)      # log(a cosh t - b sinh t), kept from overflowing
+        log = m + math.log(((a - b) * math.exp(t - m) + (a + b) * math.exp(-t - m)) / 2)
+        return L * (a * t + b * log) / (a * a - b * b)
+    return lambda x: integral(x) - integral(cx)
+
+
+def simplify(pts, tol):
+    """Drop points that lie within tol of the line through their neighbours (Ramer-Douglas-Peucker)."""
+    (x0, y0), (x1, y1) = pts[0], pts[-1]
+    dx, dy = x1 - x0, y1 - y0
+    off = [abs(dy * (x - x0) - dx * (y - y0)) / math.hypot(dx, dy) for x, y in pts[1:-1]]
+    if not off or max(off) <= tol:
+        return [pts[0], pts[-1]]
+    i = off.index(max(off)) + 1
+    return simplify(pts[:i + 1], tol)[:-1] + simplify(pts[i:], tol)
+
+
+def polyline(pts):
+    r = [(round(x, 1), round(y, 1)) for x, y in pts]
+    steps = ' '.join(f'{num(x - px)} {num(y - py)}' for (px, py), (x, y) in zip(r, r[1:]))
+    return f'M{num(r[0][0])} {num(r[0][1])}l{steps}'
+
+
+def banner(width, height, colours, gap, band=None):
+    """Profile header: a current of fine lines parts around the boat and closes again
+    behind it, so the boat sails right. The boat sits in band (x, y, w, h), right of
+    centre, away from avatars, which most sites place at the bottom left."""
+    hull_c, sail_c, line_c, bg = colours
+    bx, by, bw, bh = band or (0, 0, width, height)
+    u = bh / 500
+    s = 200 * u / BW
+    cx, keel = bx + .7 * bw, by + .62 * bh
+    art = Art().boat(cx - BW * s / 2, keel - BH * s, s, gap * s)
+    yc, R = keel - .47 * BH * s, .5 * BH * s + 16 * u      # the circle the current parts around
+    X_of = wake(cx, u)
+    step, spacing = 5 * u, 14 * u
+    xs = [i * step for i in range(-1, int(width / step) + 2)]
+    lines = []
+    for i in range(math.floor(-yc / spacing) - 3, math.ceil((height - yc) / spacing) + 3):
+        c, pts = (i + .5) * spacing, []
+        for x in xs:
+            X = X_of(x)
+            Y = streamline(X, c, R)
+            calm = 1 - math.exp(-(X * X + Y * Y) / (2.4 * R) ** 2)    # no swell next to the boat
+            swell = (4.5 * u * (.65 + .35 * math.sin((x - cx) / (420 * u) + .8))
+                     * math.sin(2 * math.pi * (x - cx) / (640 * u) + c / (95 * u)))
+            pts.append((x, yc + Y + swell * calm))
+        if any(-2 * u < y < height + 2 * u for _, y in pts):
+            lines.append(polyline(simplify(pts, .1 * u)))
+    boat_paths = ''.join(f'<path fill="{fill}" d="{d}"/>' for fill, (_, d) in zip((hull_c, sail_c), art.parts))
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}"><title>Flowwish</title>'
+            f'<rect width="{width}" height="{height}" fill="{bg}"/>'
+            f'<path fill="none" stroke="{line_c}" stroke-width="{num(1.4 * u)}" d="{"".join(lines)}"/>'
+            f'{boat_paths}</svg>\n')
+
+
 def kit():
     out_svg, out_png = HERE / 'svg', HERE / 'png'
     for d in (out_svg, out_png):
@@ -198,6 +296,9 @@ def kit():
     files['flowwish-avatar'] = (avatar(), 1024)
     files['flowwish-avatar-dark'] = (avatar(dark=True), 1024)
     files['flowwish-favicon'] = (favicon(44), 512)
+    for suffix, (colours, gap) in BANNERS.items():
+        for size, (width, height, band) in BANNER_SIZES.items():
+            files[f'flowwish-banner-{size}{suffix}'] = (banner(width, height, colours, gap, band), width)
     for name, (text, width) in files.items():
         (out_svg / f'{name}.svg').write_text(text)
         png(text, out_png / f'{name}.png', width)
@@ -278,4 +379,4 @@ if __name__ == '__main__':
     pages = site_html()
     site_icons()
     share_images()
-    print(f'{n} logo files in brand/svg and brand/png; {pages} pages updated; icons and share images written')
+    print(f'{n} kit files in brand/svg and brand/png; {pages} pages updated; icons and share images written')

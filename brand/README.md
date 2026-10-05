@@ -17,6 +17,7 @@ not the files.
 | `flowwish-wordmark` | The name alone, where the boat would be too small (PNG 2000 px wide) |
 | `flowwish-avatar`, `flowwish-avatar-dark` | Square profile pictures, full bleed (PNG 1024 and 512 px) |
 | `flowwish-favicon` | Rounded app-style tile, as used for the site icon (PNG 512 px) |
+| `flowwish-banner-3x1`, `-4x1`, `-16x9` | Profile headers behind the avatar (see [Profile banners](#profile-banners)) |
 
 Each logo, symbol and wordmark comes in four colourways (the wordmark has no
 `-black`, because its colour version is already ink):
@@ -29,7 +30,28 @@ Each logo, symbol and wordmark comes in four colourways (the wordmark has no
 | `-white` | White only | Dark or photographic, single-colour printing |
 
 The SVGs are plain filled paths with no fonts, strokes or filters, so they look
-the same in every browser, editor and printer.
+the same in every browser, editor and printer. The one exception is the banners,
+whose fine lines are strokes.
+
+## Profile banners
+
+A current of fine lines parts around the boat and closes behind it, so the boat
+sails to the right. The boat sits right of centre, away from the avatar, which
+most sites place at the bottom left.
+
+| Size | Pixels | For |
+| --- | --- | --- |
+| `3x1` | 1500 × 500 | X, Bluesky, Mastodon |
+| `4x1` | 1584 × 396 | LinkedIn profile |
+| `16x9` | 2560 × 1440 | YouTube; the boat stays inside the central 1546 × 423 that every device shows |
+
+| Suffix | Banner | Avatar to pair with |
+| --- | --- | --- |
+| (none) | Paper | `flowwish-avatar`, the default pairing |
+| `-dark` | Tile | `flowwish-avatar` |
+| `-vermilion` | Vermilion | `flowwish-avatar-dark`; the red avatar would merge into it |
+
+For another site's size, add a row to `BANNER_SIZES` in `generate.py`.
 
 ## Colours
 
