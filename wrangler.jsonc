@@ -1,0 +1,27 @@
+{
+  "name": "flowwish",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-10-05",
+  "vars": {
+    "SITE_URL": "https://flowwish.app",
+    "RESEND_FROM": "Flow Wish <launch@updates.flowwish.app>"
+  },
+  "d1_databases": [
+    {
+      "binding": "WAITLIST_DB",
+      "database_name": "flowwish-waitlist",
+      "database_id": "b4c3c46a-98e9-44e9-9c1d-e9713505c1e3",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // Preview deployments get no database binding, so they never touch production
+  // subscribers; the launch-notification API answers 503 there.
+  "env": {
+    "preview": {
+      "vars": {
+        "SITE_URL": "https://preview.flowwish.pages.dev",
+        "RESEND_FROM": "Flow Wish <launch@updates.flowwish.app>"
+      }
+    }
+  }
+}
