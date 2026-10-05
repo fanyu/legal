@@ -1,4 +1,4 @@
-# Flow Wish launch notifications
+# Flowwish launch notifications
 
 The website collects one launch notification subscription per email and app. It
 does not send email at signup. The owner's chosen retention policy keeps complete
@@ -58,7 +58,7 @@ provider responses; they never send real email.
    `email.delivery_delayed`, `email.bounced`, `email.complained`, `email.failed`,
    and `email.suppressed`. Retain its signing secret server-side.
 4. Set `SITE_URL=https://flowwish.app` and a verified `RESEND_FROM`, for example
-   `Flow Wish <launch@updates.flowwish.app>`. Store `RESEND_API_KEY`,
+   `Flowwish <launch@updates.flowwish.app>`. Store `RESEND_API_KEY`,
    `RESEND_WEBHOOK_SECRET`, and separately generated `WAITLIST_ADMIN_TOKEN`,
    `WAITLIST_SIGNING_SECRET`, and `RATE_LIMIT_SECRET` as Pages secrets.
    Restrict the sending API key to the sending domain. Do not put keys in HTML,

@@ -4,7 +4,7 @@
   "compatibility_date": "2026-10-05",
   "vars": {
     "SITE_URL": "https://flowwish.app",
-    "RESEND_FROM": "Flow Wish <launch@updates.flowwish.app>"
+    "RESEND_FROM": "Flowwish <launch@updates.flowwish.app>"
   },
   "d1_databases": [
     {
@@ -20,7 +20,7 @@
     "preview": {
       "vars": {
         "SITE_URL": "https://preview.flowwish.pages.dev",
-        "RESEND_FROM": "Flow Wish <launch@updates.flowwish.app>"
+        "RESEND_FROM": "Flowwish <launch@updates.flowwish.app>"
       }
     }
   }

@@ -206,7 +206,7 @@ export async function handleUnsubscribe(request, env, options = {}) {
     if (request.method === 'GET') {
       // Email scanners may visit this URL. GET is strictly read-only.
       const name = APPS[subscription.app];
-      return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unsubscribe · Flow Wish</title><style>body{font:16px/1.6 system-ui;color:#222;background:#fafafa;margin:0;padding:64px 24px}main{max-width:420px;margin:auto}h1{font-size:25px;font-weight:500}button{font:inherit;color:#fff;background:#222;border:0;border-radius:10px;padding:10px 18px;cursor:pointer}a{color:inherit}</style><main><h1>Unsubscribe from ${htmlEscape(name)}</h1><p>Stop the launch notification for this app.</p><form method="post" action="/api/unsubscribe"><input type="hidden" name="token" value="${htmlEscape(token)}"><input type="hidden" name="confirm" value="unsubscribe"><button>Unsubscribe</button></form><p><a href="/">Back to Flow Wish</a></p></main></html>`, {
+      return new Response(`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unsubscribe · Flowwish</title><style>body{font:16px/1.6 system-ui;color:#222;background:#fafafa;margin:0;padding:64px 24px}main{max-width:420px;margin:auto}h1{font-size:25px;font-weight:500}button{font:inherit;color:#fff;background:#222;border:0;border-radius:10px;padding:10px 18px;cursor:pointer}a{color:inherit}</style><main><h1>Unsubscribe from ${htmlEscape(name)}</h1><p>Stop the launch notification for this app.</p><form method="post" action="/api/unsubscribe"><input type="hidden" name="token" value="${htmlEscape(token)}"><input type="hidden" name="confirm" value="unsubscribe"><button>Unsubscribe</button></form><p><a href="/">Back to Flowwish</a></p></main></html>`, {
         headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer',
           'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'" },
       });
@@ -222,7 +222,7 @@ export async function handleUnsubscribe(request, env, options = {}) {
         WHERE subscription_id = ? AND status NOT IN ('delivered', 'bounced', 'cancelled')`).bind(now, subscription.id),
     ]);
     if (/^application\/x-www-form-urlencoded/i.test(request.headers.get('Content-Type') || '')) {
-      return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unsubscribed · Flow Wish</title><body style="font:16px/1.6 system-ui;padding:64px 24px"><main style="max-width:420px;margin:auto"><h1 style="font-size:25px;font-weight:500">You\'re unsubscribed.</h1><p><a href="/" style="color:inherit">Back to Flow Wish</a></p></main></body></html>', { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer' } });
+      return new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unsubscribed · Flowwish</title><body style="font:16px/1.6 system-ui;padding:64px 24px"><main style="max-width:420px;margin:auto"><h1 style="font-size:25px;font-weight:500">You\'re unsubscribed.</h1><p><a href="/" style="color:inherit">Back to Flowwish</a></p></main></body></html>', { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer' } });
     }
     return response(200, 'ok');
   });
@@ -364,8 +364,8 @@ async function freezeNotification(db, subscription, app, url, env, now) {
     to: [subscription.email],
     subject: `${name} is now available`,
     tags: [{ name: 'flowwish_notification', value: id }],
-    text: `${name} is now available.\n\nTake a look: ${url}\n\nYou asked for one email when ${name} launches.\nUnsubscribe from this app: ${unsubscribe}\n\nFlow Wish\nhttps://flowwish.app`,
-    html: `<p>${htmlEscape(name)} is now available.</p><p><a href="${htmlEscape(url)}">Take a look</a></p><p style="font-size:12px;color:#666">You asked for one email when ${htmlEscape(name)} launches. <a href="${htmlEscape(unsubscribe)}">Unsubscribe from this app</a>.</p><p>Flow Wish</p>`,
+    text: `${name} is now available.\n\nTake a look: ${url}\n\nYou asked for one email when ${name} launches.\nUnsubscribe from this app: ${unsubscribe}\n\nFlowwish\nhttps://flowwish.app`,
+    html: `<p>${htmlEscape(name)} is now available.</p><p><a href="${htmlEscape(url)}">Take a look</a></p><p style="font-size:12px;color:#666">You asked for one email when ${htmlEscape(name)} launches. <a href="${htmlEscape(unsubscribe)}">Unsubscribe from this app</a>.</p><p>Flowwish</p>`,
   });
   await db.batch([
     db.prepare(`INSERT OR IGNORE INTO waitlist_notifications

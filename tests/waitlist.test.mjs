@@ -38,7 +38,7 @@ function setup() {
   const db = new D1();
   const env = { WAITLIST_DB: db, SITE_URL: 'https://flowwish.app', RATE_LIMIT_SECRET: SECRET,
     WAITLIST_ADMIN_TOKEN: SECRET, WAITLIST_SIGNING_SECRET: SECRET,
-    RESEND_API_KEY: 'local-fake-key', RESEND_FROM: 'Flow Wish <launch@flowwish.app>', RESEND_WEBHOOK_SECRET: SIGNING };
+    RESEND_API_KEY: 'local-fake-key', RESEND_FROM: 'Flowwish <launch@flowwish.app>', RESEND_WEBHOOK_SECRET: SIGNING };
   return { db, env };
 }
 function jsonRequest(path, body, headers = {}) {

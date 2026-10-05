@@ -9,7 +9,7 @@ mkdir dist
 rsync -a \
   --exclude /.git --exclude /.github --exclude /.gitignore --exclude /.nojekyll \
   --exclude /.wrangler --exclude /dist --exclude /node_modules \
-  --exclude /functions --exclude /waitlist --exclude /migrations --exclude /tests --exclude /scripts \
+  --exclude /functions --exclude /waitlist --exclude /migrations --exclude /tests --exclude /scripts --exclude /brand \
   --exclude '/wrangler*.jsonc' --exclude /README.md --exclude '/package*.json' \
   --exclude '.dev.vars*' --exclude '.env*' --exclude .DS_Store \
   ./ dist/

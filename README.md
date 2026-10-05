@@ -1,6 +1,6 @@
 # legal
 
-Source for https://flowwish.app (Cloudflare Pages project `flowwish`): the Flow Wish
+Source for https://flowwish.app (Cloudflare Pages project `flowwish`): the Flowwish
 homepage, launch notifications, and the privacy, support and deep-link pages for my apps.
 
 ## Layout
@@ -11,12 +11,13 @@ homepage, launch notifications, and the privacy, support and deep-link pages for
 | `privacy/`, `zh/privacy/` | Privacy notice for launch notifications |
 | `404.html` | Not-found page |
 | `assets/` | Homepage styles, scripts, icons and Open Graph images |
+| `brand/` | Logo kit and `generate.py`, which also writes the site's logos, icons and share images; see `brand/README.md` |
 | `<app>/` | Per-app privacy policy, support, terms and `link/` fallback pages |
 | `style.css` | Shared style for the per-app pages |
 | `functions/`, `waitlist/`, `migrations/` | Launch-notification API (Pages Functions + D1), see `waitlist/README.md` |
 | `_headers`, `_redirects`, `_routes.json`, `.well-known/` | Pages configuration and Universal Links |
 
-Per-app pages stay standalone: they carry an unlinked Flow Wish letterhead but
+Per-app pages stay standalone: they carry an unlinked Flowwish letterhead but
 **no links to the homepage or to other apps**, so someone opening one app's policy
 is not shown the rest of the catalog.
 
