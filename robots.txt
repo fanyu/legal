@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*/link/
+
+Sitemap: https://flowwish.app/sitemap.xml
