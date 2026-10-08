@@ -56,11 +56,11 @@ h1, h2, h3, p { margin: 0; }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .wrap { width: min(1120px, 100%); margin: 0 auto; padding: 0 28px; }
 
-/* Logo: the paper boat and the outlined EB Garamond Italic wordmark, written by brand/generate.py.
-   The SVG is sized in font units (1em = 1000), so font-size sets the logo size; the sail takes the accent. */
+/* Logo: the shooting star and the outlined EB Garamond Italic wordmark, written by brand/generate.py.
+   The SVG is sized in font units (1em = 1000), so font-size sets the logo size; the star takes the accent. */
 .wordmark { line-height: 1; white-space: nowrap; color: var(--ink); }
 .wm { display: inline-block; width: auto; height: 1.033em; vertical-align: -.307em; }
-.wm .sail { fill: var(--accent); }
+.wm .star { fill: var(--accent); }
 .wm-stack { height: 2.12em; }
 
 /* Top bar */
@@ -73,8 +73,43 @@ h1, h2, h3, p { margin: 0; }
 /* Hero */
 .hero { padding: 40px 0 80px; text-align: center; }
 .hero .wordmark { font-size: clamp(64px, 19vw, 100px); }
-.hero .boat { animation: boat-in 1.1s cubic-bezier(.2, .8, .2, 1) .15s both; }
-@keyframes boat-in { from { opacity: 0; transform: translateX(-160px); } }
+/* The star flies in along its path and the tail unfurls behind it. The keyframes move
+   the logo in its own font units, measured from the SVG's origin. */
+.hero .meteor, .hero .tail { transform-box: view-box; transform-origin: 0 0; }
+.hero .meteor { animation: meteor-in 1.2s linear .15s both; }
+.hero .tail { animation: tail-in 1.2s linear .15s both; }
+/* meteor keyframes: written by brand/generate.py */
+@keyframes meteor-in {
+  0% { transform: translate(-1018.9px, 397.3px); opacity: 0; }
+  8.3% { transform: translate(-818.5px, 237.1px); opacity: 0.3; }
+  16.7% { transform: translate(-629.3px, 136.5px); opacity: 0.7; }
+  25% { transform: translate(-464.7px, 75.8px); opacity: 1; }
+  33.3% { transform: translate(-328.7px, 40.6px); }
+  41.7% { transform: translate(-221.1px, 20.6px); }
+  50% { transform: translate(-139.4px, 10px); }
+  58.3% { transform: translate(-80.8px, 4.5px); }
+  66.7% { transform: translate(-41.5px, 1.8px); }
+  75% { transform: translate(-17.5px, 0.8px); }
+  83.3% { transform: translate(-5.2px, 0.2px); }
+  91.7% { transform: translate(-0.6px, 0px); }
+  100% { transform: translate(0px, 0px); }
+}
+@keyframes tail-in {
+  0% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.15) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  8.3% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.345) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  16.7% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.508) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  25% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.641) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  33.3% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.748) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  41.7% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.831) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  50% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.894) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  58.3% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.939) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  66.7% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.969) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  75% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.987) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  83.3% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(0.996) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  91.7% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(1) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+  100% { transform: translate(1924.5px, -1526.2px) rotate(-38.5deg) scaleX(1) rotate(38.5deg) translate(-1924.5px, 1526.2px); }
+}
+/* end meteor keyframes */
 .statement { max-width: 30em; margin: 30px auto 0; color: var(--ink-2); font-size: clamp(18px, 2.1vw, 22px); line-height: 1.45; letter-spacing: -.012em; text-wrap: balance; }
 .byline { margin-top: 12px; color: var(--muted); font-size: 14px; }
 .byline .dot { margin: 0 .55em; color: var(--accent); }
