@@ -21,6 +21,7 @@
   --shadow-hover: 0 3px 6px #00000006, 0 16px 36px #0000000e;
   --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --serif: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -71,7 +72,7 @@ h1, h2, h3, p { margin: 0; }
 .lang-switch svg { width: 15px; height: 15px; }
 
 /* Hero */
-.hero { padding: 40px 0 80px; text-align: center; }
+.hero { padding-top: 40px; padding-bottom: 80px; text-align: center; }
 .hero .wordmark { font-size: clamp(64px, 19vw, 100px); }
 /* The star flies in along its path and the tail unfurls behind it. The keyframes move
    the logo in its own font units, measured from the SVG's origin. */
@@ -112,8 +113,14 @@ h1, h2, h3, p { margin: 0; }
 /* end meteor keyframes */
 .statement { max-width: 30em; margin: 30px auto 0; color: var(--ink-2); font-size: clamp(18px, 2.1vw, 22px); line-height: 1.45; letter-spacing: -.012em; text-wrap: balance; }
 .byline { margin-top: 12px; color: var(--muted); font-size: 14px; }
-.byline .dot { margin: 0 .55em; color: var(--accent); }
 :lang(zh) .statement { letter-spacing: 0; }
+/* Epigraph: the quote in an italic serif that echoes the wordmark, a clause to a line
+   (on phones the English runs on). On the Chinese page a translation follows it. */
+.epigraph { margin: 34px 0 0; text-wrap: balance; }
+.epigraph blockquote { margin: 0; color: var(--ink-2); font: italic 17px/1.6 var(--serif); hanging-punctuation: first last; }
+.epigraph span { display: block; }
+.epigraph .translation { margin-top: 10px; color: var(--muted); font-size: 14px; }
+.epigraph figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; }
 
 /* App groups */
 .group + .group { margin-top: 64px; }
@@ -243,8 +250,11 @@ body.waitlist-open { overflow: hidden; }
 @media (max-width: 650px) {
   .wrap { padding: 0 18px; }
   .topbar { min-height: 64px; }
-  .hero { padding: 28px 0 56px; }
+  .hero { padding-top: 28px; padding-bottom: 56px; }
   .statement { margin-top: 22px; }
+  .epigraph { margin-top: 28px; }
+  .epigraph blockquote { font-size: 16px; }
+  .epigraph blockquote span { display: inline; }
   .group + .group { margin-top: 48px; }
   .group-head { margin-bottom: 16px; }
   .group-head h2 { font-size: 20px; }
