@@ -115,11 +115,10 @@ h1, h2, h3, p { margin: 0; }
 .byline { margin-top: 12px; color: var(--muted); font-size: 14px; }
 :lang(zh) .statement { letter-spacing: 0; }
 /* Epigraph: the quote in an italic serif that echoes the wordmark, a clause to a line
-   (on phones the English runs on). On the Chinese page a translation follows it. */
+   (on phones it runs on). Both pages show it in English. */
 .epigraph { margin: 34px 0 0; text-wrap: balance; }
 .epigraph blockquote { margin: 0; color: var(--ink-2); font: italic 17px/1.6 var(--serif); hanging-punctuation: first last; }
 .epigraph span { display: block; }
-.epigraph .translation { margin-top: 10px; color: var(--muted); font-size: 14px; }
 .epigraph figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; }
 
 /* App groups */
@@ -254,7 +253,7 @@ body.waitlist-open { overflow: hidden; }
   .statement { margin-top: 22px; }
   .epigraph { margin-top: 28px; }
   .epigraph blockquote { font-size: 16px; }
-  .epigraph blockquote span { display: inline; }
+  .epigraph span { display: inline; }
   .group + .group { margin-top: 48px; }
   .group-head { margin-bottom: 16px; }
   .group-head h2 { font-size: 20px; }
