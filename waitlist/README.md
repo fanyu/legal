@@ -7,8 +7,8 @@ email addresses and subscription/send/delivery history in private D1 tables.
 ## Current deployment boundary
 
 The subscription feature is live at https://flowwish.app, deployed from this
-repository as `8fd86ce3-48be-4442-88bb-0f937b345313` (commit 8540512, 2026-10-11; the
-previous deployment was `30399ce2-c07d-4e64-87b0-6a2cbb45e4a5`). Production D1 is initialized
+repository as `89dd66d5-c1a1-497a-bb78-d4a34ab1473b` (commit a784503, 2026-10-13; the
+previous deployment was `8fd86ce3-48be-4442-88bb-0f937b345313`). Production D1 is initialized
 and bound to Pages, and the three application secrets are encrypted. Non-writing
 checks after the deployment confirmed that cross-origin signups are rejected and
 that signup validation, unsubscribe-link validation and admin authorization run
