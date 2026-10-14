@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flowwish — Independent apps by Yu Fan</title>
   <script>if(location.hostname==='fanyu.github.io'){location.replace('https://flowwish.app'+location.pathname.replace(/^\/legal(?=\/|$)/,'')+location.search+location.hash);}else{try{var p=localStorage.getItem('lang'),l=((navigator.languages&&navigator.languages[0])||navigator.language||'').toLowerCase(),r=document.referrer.indexOf(location.origin+'/')===0;if(p?p==='zh':(/^zh\b/.test(l)&&!/hant|-tw|-hk|-mo/.test(l)&&!r)){location.replace('zh/'+location.search+location.hash);}}catch(e){}}</script>
-  <meta name="description" content="Independent apps for iPhone, iPad, Apple Watch and Mac by Yu Fan: Reverie, Lull, OpenPulse, BrightnessFlow, MarkdownFlow, and more on the way.">
+  <meta name="description" content="Independent apps for iPhone, iPad, Apple Watch and Mac by Yu Fan: Flow, Reverie, Lull, OpenPulse, BrightnessFlow, MarkdownFlow, and more on the way.">
   <link rel="canonical" href="https://flowwish.app/">
   <link rel="alternate" hreflang="en" href="https://flowwish.app/">
   <link rel="alternate" hreflang="zh-Hans" href="https://flowwish.app/zh/">
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Flowwish">
   <meta property="og:title" content="Flowwish — Independent apps by Yu Fan">
-  <meta property="og:description" content="Independent apps for iPhone, iPad, Apple Watch and Mac by Yu Fan: Reverie, Lull, OpenPulse, BrightnessFlow, MarkdownFlow, and more on the way.">
+  <meta property="og:description" content="Independent apps for iPhone, iPad, Apple Watch and Mac by Yu Fan: Flow, Reverie, Lull, OpenPulse, BrightnessFlow, MarkdownFlow, and more on the way.">
   <meta property="og:url" content="https://flowwish.app/">
   <meta property="og:image" content="https://flowwish.app/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -78,6 +78,21 @@
       <section class="group" aria-labelledby="g-store">
         <div class="group-head"><h2 id="g-store">On the App Store</h2><p>Free to download.</p></div>
         <div class="grid grid-2">
+        <article class="app app-hero" style="--soft:#f8f4ef;--tint:#eee1d4" aria-labelledby="name-flow">
+          <div class="app-visual" aria-hidden="true"><span class="scene-shadow"></span><div class="icon-float"><div class="icon-shell"><img class="app-icon" src="assets/apps/flow.png" width="156" height="156" alt="" decoding="async"></div></div></div>
+          <div class="app-body">
+            <div class="app-head"><h3 class="app-name" id="name-flow">Flow</h3><p class="app-platforms"><span class="nw">iPhone</span> · <span class="nw">Apple Watch</span> · <span class="nw">iPad</span> · <span class="nw">Mac</span></p></div>
+            <p class="app-description">An all-in-one personal finance tracker for your everyday money and investments. Track daily expenses and income, manage recurring subscriptions, plan smart budgets and runway, and monitor stock and fund portfolios with live quotes — built offline-first with iCloud sync and complete privacy.</p>
+            <div class="app-feature-pills" aria-label="Key features">
+              <span class="feature-pill">💳 Expense &amp; Income</span>
+              <span class="feature-pill">🔄 Subscriptions</span>
+              <span class="feature-pill">🎯 Smart Budgets &amp; Runway</span>
+              <span class="feature-pill">📈 Stocks &amp; Funds Live Quotes</span>
+              <span class="feature-pill">☁️ Local-First &amp; iCloud Sync</span>
+            </div>
+            <div class="app-actions"><a class="store-button stretched" href="https://apps.apple.com/app/id6805785568" target="_blank" rel="noopener"><img class="store-badge" src="assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store"><span class="sr-only">: Flow</span></a><div class="app-links"><a href="flow/support/">Support<span class="sr-only">: Flow</span></a><a href="flow/">Privacy<span class="sr-only">: Flow</span></a></div></div>
+          </div>
+        </article>
         <article class="app" style="--soft:#f6f4f0;--tint:#e9e5db" aria-labelledby="name-reverie">
           <div class="app-visual" aria-hidden="true"><span class="scene-shadow"></span><div class="icon-float"><div class="icon-shell"><img class="app-icon" src="assets/apps/reverie.jpg" width="156" height="156" alt="" decoding="async"></div></div></div>
           <div class="app-body">
@@ -127,15 +142,7 @@
       </section>
       <section class="group" aria-labelledby="g-soon">
         <div class="group-head"><h2 id="g-soon">Coming soon</h2><p>Leave your email for a single message when each one launches.</p></div>
-        <div class="grid grid-3">
-        <article class="app" style="--soft:#f8f4ef;--tint:#eee1d4" aria-labelledby="name-flow">
-          <div class="app-visual" aria-hidden="true"><span class="scene-shadow"></span><div class="icon-float"><div class="icon-shell"><img class="app-icon" src="assets/apps/flow.png" width="156" height="156" alt="" loading="lazy" decoding="async"></div></div></div>
-          <div class="app-body">
-            <div class="app-head"><h3 class="app-name" id="name-flow">Flow</h3><p class="app-platforms"><span class="nw">iPhone</span> · <span class="nw">Apple Watch</span> · <span class="nw">iPad</span> · <span class="nw">Mac</span></p></div>
-            <p class="app-description">Track spending, income, and transfers on a clear timeline. Bring your accounts, budgets, and assets together, with recurring bills and subscriptions in the same place.</p>
-            <div class="app-actions"><button class="btn btn-outline notify-button stretched" type="button" data-notify-app="flow" aria-haspopup="dialog" aria-controls="waitlist-dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16.5V11a6 6 0 1 1 12 0v5.5l1.5 2h-15l1.5-2Z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>Notify me<span class="sr-only">: Flow</span></button><div class="app-links"><a href="flow/support/">Support<span class="sr-only">: Flow</span></a><a href="flow/">Privacy<span class="sr-only">: Flow</span></a></div></div>
-          </div>
-        </article>
+        <div class="grid grid-2">
         <article class="app" style="--soft:#f4f4f0;--tint:#e7e7df" aria-labelledby="name-odo">
           <div class="app-visual" aria-hidden="true"><span class="scene-shadow"></span><div class="icon-float"><div class="icon-shell"><img class="app-icon" src="assets/apps/odo.png" width="156" height="156" alt="" loading="lazy" decoding="async"></div></div></div>
           <div class="app-body">

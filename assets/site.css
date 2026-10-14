@@ -169,6 +169,11 @@ h1, h2, h3, p { margin: 0; }
 .btn-primary:hover { background: var(--btn-hover); border-color: var(--btn-hover); }
 .btn-outline:hover { border-color: var(--muted); }
 
+.app-feature-pills { display: flex; flex-wrap: wrap; gap: 7px 9px; margin-top: 14px; }
+.feature-pill { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--ink) 4%, var(--surface)); border: 1px solid var(--line); color: var(--ink-2); font-size: 12.5px; line-height: 1.4; letter-spacing: -.01em; }
+@media (prefers-color-scheme: dark) {
+  .feature-pill { background: color-mix(in srgb, var(--ink) 6%, var(--surface)); }
+}
 @media (hover: hover) and (pointer: fine) {
   .app:hover { border-color: var(--line-strong); box-shadow: var(--shadow-hover); }
   .app:hover .icon-shell { transform: translateY(-8px) scale(1.025); }
@@ -183,14 +188,20 @@ h1, h2, h3, p { margin: 0; }
   .grid-2 .app { --fade: to right; flex-direction: row; }
   .grid-2 .app-visual { flex: 0 0 40%; height: auto; min-height: 300px; }
   .grid-2 .app-body { justify-content: center; padding: 30px 32px 28px 8px; }
+  .grid-2 .app.app-hero { grid-column: 1 / -1; }
+  .grid-2 .app.app-hero .app-visual { flex: 0 0 35%; min-height: 340px; }
+  .grid-2 .app.app-hero .app-body { padding: 36px 42px 34px 16px; }
+  .grid-2 .app.app-hero .app-name { font-size: 26px; }
 }
 @media (min-width: 651px) and (max-width: 940px) {
   .grid-2, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-2 .app.app-hero { grid-column: 1 / -1; --fade: to right; flex-direction: row; }
+  .grid-2 .app.app-hero .app-visual { flex: 0 0 38%; min-height: 280px; }
+  .grid-2 .app.app-hero .app-body { justify-content: center; padding: 28px 30px 26px 8px; }
   .grid-3 .app:last-child:nth-child(odd) { --fade: to right; grid-column: 1 / -1; flex-direction: row; }
   .grid-3 .app:last-child:nth-child(odd) .app-visual { flex: 0 0 40%; height: auto; min-height: 260px; }
   .grid-3 .app:last-child:nth-child(odd) .app-body { justify-content: center; padding: 28px 30px 26px 8px; }
 }
-
 /* Footer */
 .site-footer { margin-top: 96px; border-top: 1px solid var(--line); }
 .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 24px; padding-top: 28px; padding-bottom: 44px; }
@@ -266,6 +277,8 @@ body.waitlist-open { overflow: hidden; }
   .app-head { grid-column: 2; grid-row: 1; }
   .app-name { font-size: 20px; }
   .app-description { grid-column: 1 / -1; margin-top: 14px; }
+  .app-feature-pills { grid-column: 1 / -1; margin-top: 12px; }
+  .feature-pill { font-size: 12px; padding: 3px 8px; }
   .app-actions { grid-column: 1 / -1; padding-top: 16px; }
   .stretched::after { border-radius: 21px; }
   .site-footer { margin-top: 72px; }
