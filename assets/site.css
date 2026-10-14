@@ -281,3 +281,351 @@ body.waitlist-open { overflow: hidden; }
   .app:hover .icon-shell { transform: none; }
   .app:hover .scene-shadow { transform: translateX(-50%); }
 }
+
+/* Flowwish Fluid Canvas & Frame */
+:root {
+  --feather-color: #0e1015;
+}
+
+body {
+  background: var(--bg);
+  transition: background 0.6s ease, color 0.6s ease;
+  min-height: 100vh;
+}
+
+.fw-water-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -2;
+  display: block;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.fw-water-canvas.is-ready {
+  opacity: 1;
+}
+
+.fw-water-frame {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transition: background 0.6s ease;
+  background:
+    linear-gradient(to right,  var(--feather-color) 0%, color-mix(in srgb, var(--feather-color) 97%, transparent) 1.5%, color-mix(in srgb, var(--feather-color) 86%, transparent) 3.5%, color-mix(in srgb, var(--feather-color) 62%, transparent) 6%, color-mix(in srgb, var(--feather-color) 34%, transparent) 9%, color-mix(in srgb, var(--feather-color) 12%, transparent) 13%, transparent 18%),
+    linear-gradient(to left,   var(--feather-color) 0%, color-mix(in srgb, var(--feather-color) 97%, transparent) 1.5%, color-mix(in srgb, var(--feather-color) 86%, transparent) 3.5%, color-mix(in srgb, var(--feather-color) 62%, transparent) 6%, color-mix(in srgb, var(--feather-color) 34%, transparent) 9%, color-mix(in srgb, var(--feather-color) 12%, transparent) 13%, transparent 18%),
+    linear-gradient(to bottom, var(--feather-color) 0%, color-mix(in srgb, var(--feather-color) 96%, transparent) 1%,   color-mix(in srgb, var(--feather-color) 82%, transparent) 2.6%, color-mix(in srgb, var(--feather-color) 55%, transparent) 4.6%, color-mix(in srgb, var(--feather-color) 28%, transparent) 7%,  color-mix(in srgb, var(--feather-color) 9%, transparent) 10%, transparent 14%),
+    linear-gradient(to top,    var(--feather-color) 0%, color-mix(in srgb, var(--feather-color) 96%, transparent) 1%,   color-mix(in srgb, var(--feather-color) 82%, transparent) 2.4%, color-mix(in srgb, var(--feather-color) 55%, transparent) 4.2%, color-mix(in srgb, var(--feather-color) 28%, transparent) 6.4%, color-mix(in srgb, var(--feather-color) 9%, transparent) 9%, transparent 12.5%);
+}
+
+/* Topbar theme actions */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+.theme-segments {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s, background 0.4s;
+}
+.theme-seg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.theme-seg-btn:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+.theme-seg-btn.is-active {
+  background: var(--ink);
+  color: var(--bg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+}
+.theme-seg-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Interactive Theme Bar */
+.theme-bar {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22), 0 2px 10px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-family: var(--sans);
+  font-size: 13px;
+  user-select: none;
+  transition: background 0.4s, border-color 0.4s;
+  animation: theme-bar-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+@keyframes theme-bar-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.theme-bar-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px 0 6px;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.theme-bar-label svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.theme-btn:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+.theme-btn.is-active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+.theme-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ripple-hint {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  color: var(--ink-2);
+  font-size: 13px;
+  font-family: var(--sans);
+  pointer-events: none;
+  opacity: 0.9;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: opacity 0.4s ease;
+  animation: theme-bar-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+.ripple-hint-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: ripple-pulse 2s infinite ease-in-out;
+}
+@keyframes ripple-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 1; }
+}
+
+@media (max-width: 800px) {
+  .theme-bar {
+    bottom: 14px;
+    right: 12px;
+    left: 12px;
+    justify-content: center;
+    padding: 4px;
+    gap: 2px;
+  }
+  .theme-bar-label { display: none; }
+  .theme-btn { padding: 5px 9px; font-size: 12px; }
+  .ripple-hint { display: none; }
+}
+
+/* ============================================================
+   SEAMLESS CARD GRADIENTS (100% Zero-Seam in Dark & Light)
+   ============================================================ */
+
+.app {
+  border-radius: 26px;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: var(--shadow) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease,
+              background 0.5s ease !important;
+}
+
+[data-theme="cosmic"] .app,
+[data-theme="dusk"] .app {
+  --scene-hi: #262c3a;
+  --scene-soft: color-mix(in srgb, var(--soft, #f6f6f6) 9%, var(--surface));
+  --scene-tint: color-mix(in srgb, var(--tint, #e8e8e8) 17%, var(--surface));
+  --scene-shadow: 0.55;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="pearl"] .app,
+[data-theme="sage"] .app {
+  --scene-hi: #ffffff;
+  --scene-soft: var(--soft, #f6f6f6);
+  --scene-tint: var(--tint, #e8e8e8);
+  --scene-shadow: 0.14;
+  border-color: var(--line) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+@media (min-width: 941px) {
+  .grid-2 .app {
+    --fade: to right !important;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 940px) {
+  .grid-3 .app:last-child:nth-child(odd) {
+    --fade: to right !important;
+  }
+}
+
+.app-visual {
+  background: var(--surface) !important;
+  background:
+    linear-gradient(var(--fade), transparent 30%, var(--surface) 100%),
+    radial-gradient(ellipse at 26% 3%, var(--scene-hi) 0%, var(--scene-soft) 45%, var(--scene-tint) 100%) !important;
+  transition: background 0.5s ease;
+}
+
+.app-visual::before {
+  -webkit-mask-image: linear-gradient(var(--fade), #000 50%, transparent 100%) !important;
+  mask-image: linear-gradient(var(--fade), #000 50%, transparent 100%) !important;
+}
+
+.app::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.25) 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.8;
+}
+[data-theme="pearl"] .app::before,
+[data-theme="sage"] .app::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.9) 30%, rgba(255, 255, 255, 0.9) 70%, transparent 100%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .app:hover {
+    transform: translateY(-6px) !important;
+    border-color: var(--line-strong) !important;
+  }
+  [data-theme="cosmic"] .app:hover {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  }
+  [data-theme="pearl"] .app:hover,
+  [data-theme="sage"] .app:hover {
+    box-shadow: var(--shadow-hover) !important;
+  }
+}
+
+[data-theme="cosmic"] .btn-primary,
+[data-theme="dusk"] .btn-primary {
+  background: #f2efe8 !important;
+  color: #12141a !important;
+  border-color: #f2efe8 !important;
+}
+[data-theme="cosmic"] .btn-primary:hover,
+[data-theme="dusk"] .btn-primary:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+[data-theme="cosmic"] .btn-outline,
+[data-theme="dusk"] .btn-outline {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #f2efe8 !important;
+}
+[data-theme="cosmic"] .btn-outline:hover,
+[data-theme="dusk"] .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+}
+[data-theme="cosmic"] .store-button,
+[data-theme="dusk"] .store-button {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
+  border-radius: 9px;
+}
+
+[data-theme="pearl"] .btn-primary,
+[data-theme="sage"] .btn-primary {
+  background: #1b1c1f !important;
+  color: #ffffff !important;
+  border-color: #1b1c1f !important;
+}
+[data-theme="pearl"] .btn-outline,
+[data-theme="sage"] .btn-outline {
+  background: #ffffff !important;
+  border-color: var(--line-strong) !important;
+  color: var(--ink) !important;
+}

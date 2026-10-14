@@ -12,6 +12,7 @@ rsync -a \
   --exclude /functions --exclude /waitlist --exclude /migrations --exclude /tests --exclude /scripts --exclude /brand \
   --exclude '/wrangler*.jsonc' --exclude /README.md --exclude '/package*.json' \
   --exclude '.dev.vars*' --exclude '.env*' --exclude .DS_Store \
+  --exclude '/ambi-waitlist.html' --exclude '/flowwish-demo.html' \
   ./ dist/
 
 # Never ship configuration, secrets, database dumps or subscriber exports.
@@ -26,12 +27,12 @@ done
 
 # The flowwish.app zone lets browsers cache CSS/JS for hours, so stamp each
 # reference with a content hash. The source HTML stays unversioned.
-for f in assets/site.css assets/waitlist.js style.css; do
+for f in assets/site.css assets/fluid.js assets/waitlist.js style.css; do
   v=$(shasum "dist/$f" | cut -c1-10)
   n=$(basename "$f" | sed 's/\./\\./g')
   find dist -name '*.html' -exec perl -pi -e "s#((?:href|src)=\"(?:[^\"]*/)?$n)\"#\$1?v=$v\"#g" {} +
 done
-unstamped=$(grep -rlE '(site\.css|waitlist\.js|style\.css)"' dist --include='*.html' || true)
+unstamped=$(grep -rlE '(site\.css|fluid\.js|waitlist\.js|style\.css)"' dist --include='*.html' || true)
 [ -z "$unstamped" ] || { printf 'build: unversioned asset reference in:\n%s\n' "$unstamped" >&2; exit 1; }
 
 echo "dist: $(find dist -type f | wc -l | tr -d ' ') files"

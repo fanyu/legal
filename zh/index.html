@@ -34,8 +34,35 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Flowwish","url":"https://flowwish.app/","inLanguage":"zh-Hans","publisher":{"@type":"Person","name":"Yu Fan","url":"https://flowwish.app/","sameAs":["https://github.com/fanyu","https://x.com/edceezz"]}}</script>
 </head>
 <body>
+  <canvas class="fw-water-canvas" id="fluidCanvas" aria-hidden="true"></canvas>
+  <div class="fw-water-frame" id="fluidFrame" aria-hidden="true"></div>
   <header class="wrap topbar">
-    <a class="lang-switch" href="../" hreflang="en" lang="en" data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3Z"/></svg>English</a>
+    <div class="topbar-actions">
+      <div class="theme-segments" role="radiogroup" aria-label="外观：跟随系统、浅色、深色">
+        <button class="theme-seg-btn is-active" data-mode="auto" type="button" role="radio" aria-checked="true" title="跟随系统 (Auto)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          <span class="sr-only">跟随系统</span>
+        </button>
+        <button class="theme-seg-btn" data-mode="light" type="button" role="radio" aria-checked="false" title="浅色 · 霜白银流 (Light)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span class="sr-only">浅色外观</span>
+        </button>
+        <button class="theme-seg-btn" data-mode="dark" type="button" role="radio" aria-checked="false" title="深色 · 星夜极光 (Dark)">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="sr-only">深色外观</span>
+        </button>
+      </div>
+      <a class="lang-switch" href="../" hreflang="en" lang="en" data-lang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.6 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.6-3.6-9S9.6 5.6 12 3Z"/></svg>English</a>
+    </div>
   </header>
   <main>
     <section class="wrap hero">
@@ -156,5 +183,6 @@
   </dialog>
   <script>document.querySelectorAll('[data-lang]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.dataset.lang);}catch(e){}});});</script>
   <script src="../assets/waitlist.js" defer></script>
+  <script src="../assets/fluid.js" defer></script>
 </body>
 </html>
