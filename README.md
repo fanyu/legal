@@ -28,6 +28,7 @@ is not shown the rest of the catalog.
 | Meluva | https://flowwish.app/meluva/ | https://flowwish.app/meluva/support/ |
 | Odo | https://flowwish.app/odo/ | https://flowwish.app/odo/support/ |
 | PasteTrail | https://flowwish.app/pasteflow/ | https://flowwish.app/pasteflow/support/ |
+| Readember | https://flowwish.app/readember/ | https://flowwish.app/readember/support/ |
 | Reverie | https://flowwish.app/reverie/ | https://flowwish.app/reverie/support/ |
 | SignatureFlow | https://flowwish.app/signatureflow/ | |
 | VoiceFlow | https://flowwish.app/voiceflow/ | |
