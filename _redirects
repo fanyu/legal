@@ -4,3 +4,5 @@
 /reverie/link/* /reverie/link/ 200
 /odo/link/* /odo/link/ 200
 /meluva/link/* /meluva/link/ 200
+/readember /readdot/ 301
+/readember/* /readdot/:splat 301
